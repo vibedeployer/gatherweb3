@@ -8,6 +8,7 @@ import Chair from '../items/Chair'
 import Computer from '../items/Computer'
 import Whiteboard from '../items/Whiteboard'
 import VideoScreen from '../items/VideoScreen'
+import PhilbotScreen from '../items/PhilbotScreen'
 
 import { phaserEvents, Event } from '../events/EventCenter'
 import store from '../stores'
@@ -67,6 +68,10 @@ export default class MyPlayer extends Player {
           const videoscreen = item as VideoScreen
           videoscreen.openDialog(network)
           break
+        case ItemType.PHILBOTSCREEN:
+            const philbotscreen = item as PhilbotScreen
+            philbotscreen.openDialog(network)
+            break
         case ItemType.VENDINGMACHINE:
           // hacky and hard-coded, but leaving it as is for now
           window.open('https://www.buymeacoffee.com/', '_blank')

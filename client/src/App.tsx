@@ -7,7 +7,8 @@ import RoomSelectionDialog from './components/RoomSelectionDialog'
 import LoginDialog from './components/LoginDialog'
 import ComputerDialog from './components/ComputerDialog'
 import WhiteboardDialog from './components/WhiteboardDialog'
-import VideoscreenDialog from './components/VideosceenDialog'
+import VideoscreenDialog from './components/VideoscreenDialog'
+import PhilbotscreenDialog from './components/PhilbotscreenDialog'
 import VideoConnectionDialog from './components/VideoConnectionDialog'
 import Chat from './components/Chat'
 import HelperButtonGroup from './components/HelperButtonGroup'
@@ -23,6 +24,7 @@ function App() {
   const computerDialogOpen = useAppSelector((state) => state.computer.computerDialogOpen)
   const whiteboardDialogOpen = useAppSelector((state) => state.whiteboard.whiteboardDialogOpen)
   const videoscreenDialogOpen = useAppSelector((state) => state.videoscreen.videoscreenDialogOpen)
+  const philbotscreenDialogOpen = useAppSelector((state) => state.philbotscreen.philbotscreenDialogOpen)
   const videoConnected = useAppSelector((state) => state.user.videoConnected)
   const roomJoined = useAppSelector((state) => state.room.roomJoined)
 
@@ -37,6 +39,9 @@ function App() {
     } else if (videoscreenDialogOpen) {
       /* Render WhiteboardDialog if user is using a whiteboard. */
       ui = <VideoscreenDialog />
+    } else if (philbotscreenDialogOpen) {
+      /* Render WhiteboardDialog if user is using a whiteboard. */
+      ui = <PhilbotscreenDialog />
     } else {
       ui = (
         /* Render Chat or VideoConnectionDialog if no dialogs are opened. */

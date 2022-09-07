@@ -3598,54 +3598,6 @@
                  "y":96
                 }, 
                 {
-                 "gid":4131,
-                 "height":32,
-                 "id":711,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1184,
-                 "y":288
-                }, 
-                {
-                 "gid":4130,
-                 "height":32,
-                 "id":712,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1152,
-                 "y":288
-                }, 
-                {
-                 "gid":4147,
-                 "height":32,
-                 "id":713,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1184,
-                 "y":320
-                }, 
-                {
-                 "gid":4146,
-                 "height":32,
-                 "id":714,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":1152,
-                 "y":320
-                }, 
-                {
                  "gid":4447,
                  "height":32,
                  "id":715,
@@ -4228,28 +4180,28 @@
          "name":"VideoScreen",
          "objects":[
                 {
-                 "gid":5488,
-                 "height":72,
-                 "id":1269,
+                 "gid":5489,
+                 "height":48,
+                 "id":1271,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":48,
-                 "x":378,
-                 "y":209
+                 "width":60,
+                 "x":293.333333333333,
+                 "y":538.666666666667
                 }, 
                 {
-                 "gid":5488,
-                 "height":72,
-                 "id":1270,
+                 "gid":5489,
+                 "height":48,
+                 "id":1272,
                  "name":"",
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":48,
-                 "x":683.368421052632,
-                 "y":749.142857142857
+                 "width":60,
+                 "x":1138,
+                 "y":314.666666666667
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -4258,7 +4210,7 @@
          "y":0
         }],
  "nextlayerid":16,
- "nextobjectid":1271,
+ "nextobjectid":1273,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
@@ -4267,7 +4219,7 @@
         {
          "columns":64,
          "firstgid":1,
-         "image":"FloorAndGround.png",
+         "image":"..\/..\/..\/..\/..\/SkyOffice\/client\/public\/assets\/map\/FloorAndGround.png",
          "imageheight":1280,
          "imagewidth":2048,
          "margin":0,
@@ -27321,7 +27273,7 @@
         {
          "columns":1,
          "firstgid":2561,
-         "image":"..\/items\/chair.png",
+         "image":"..\/..\/..\/..\/..\/SkyOffice\/client\/public\/assets\/items\/chair.png",
          "imageheight":1472,
          "imagewidth":32,
          "margin":0,
@@ -27334,7 +27286,7 @@
         {
          "columns":16,
          "firstgid":2584,
-         "image":"..\/items\/Modern_Office_Black_Shadow.png",
+         "image":"..\/..\/..\/..\/..\/SkyOffice\/client\/public\/assets\/items\/Modern_Office_Black_Shadow.png",
          "imageheight":1696,
          "imagewidth":512,
          "margin":0,
@@ -27347,7 +27299,7 @@
         {
          "columns":16,
          "firstgid":3432,
-         "image":"..\/items\/Generic.png",
+         "image":"..\/..\/..\/..\/..\/SkyOffice\/client\/public\/assets\/items\/Generic.png",
          "imageheight":2496,
          "imagewidth":512,
          "margin":0,
@@ -27360,7 +27312,7 @@
         {
          "columns":5,
          "firstgid":4680,
-         "image":"..\/items\/computer.png",
+         "image":"..\/..\/..\/..\/..\/SkyOffice\/client\/public\/assets\/items\/computer.png",
          "imageheight":64,
          "imagewidth":480,
          "margin":0,
@@ -27373,7 +27325,7 @@
         {
          "columns":1,
          "firstgid":4685,
-         "image":"..\/items\/whiteboard.png",
+         "image":"..\/..\/..\/..\/..\/SkyOffice\/client\/public\/assets\/items\/whiteboard.png",
          "imageheight":192,
          "imagewidth":64,
          "margin":0,
@@ -27386,7 +27338,7 @@
         {
          "columns":16,
          "firstgid":4688,
-         "image":"..\/items\/Basement.png",
+         "image":"..\/..\/..\/..\/..\/SkyOffice\/client\/public\/assets\/items\/Basement.png",
          "imageheight":1600,
          "imagewidth":512,
          "margin":0,
@@ -27399,7 +27351,7 @@
         {
          "columns":1,
          "firstgid":5488,
-         "image":"..\/items\/vendingmachine.png",
+         "image":"..\/..\/..\/..\/..\/SkyOffice\/client\/public\/assets\/items\/vendingmachine.png",
          "imageheight":72,
          "imagewidth":48,
          "margin":0,
@@ -27408,6 +27360,19 @@
          "tilecount":1,
          "tileheight":72,
          "tilewidth":48
+        }, 
+        {
+         "columns":1,
+         "firstgid":5489,
+         "image":"..\/items\/display.png",
+         "imageheight":48,
+         "imagewidth":60,
+         "margin":0,
+         "name":"display",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":48,
+         "tilewidth":60
         }],
  "tilewidth":32,
  "type":"map",

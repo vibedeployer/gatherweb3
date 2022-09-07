@@ -3,7 +3,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import userReducer from './UserStore'
 import computerReducer from './ComputerStore'
 import whiteboardReducer from './WhiteboardStore'
-import videoscreenReducer from './VideoScreenStore'
+import videoscreenReducer from './VideoscreenStore'
+import philbotscreenReducer from './PhilbotscreenStore'
 import chatReducer from './ChatStore'
 import roomReducer from './RoomStore'
  
@@ -15,6 +16,7 @@ const store = configureStore({
     computer: computerReducer,
     whiteboard: whiteboardReducer,
     videoscreen: videoscreenReducer,
+    philbotscreen: philbotscreenReducer,
     chat: chatReducer,
     room: roomReducer,
   },

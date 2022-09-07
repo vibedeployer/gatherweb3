@@ -155,6 +155,7 @@ export default function LoginDialog() {
   const game = phaserGame.scene.keys.game as Game
 
   useEffect(() => {
+    Moralis.enableWeb3() 
     const truncate = (input) => {
       if (input.length > 5) {
          return input.substring(0, 7) + '...';

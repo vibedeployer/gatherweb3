@@ -482,4 +482,14 @@ export const createCharacterAnims = (anims: Phaser.Animations.AnimationManager) 
     repeat: 0,
     frameRate: animsFrameRate,
   })
+
+  anims.create({
+    key: 'philbot_standing',
+    frames: anims.generateFrameNames('philbot', {
+      start: 0,
+      end: 5,
+    }),
+    repeat: -1,
+    frameRate: animsFrameRate,
+  })
 }

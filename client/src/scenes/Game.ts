@@ -9,6 +9,7 @@ import Computer from '../items/Computer'
 import Whiteboard from '../items/Whiteboard'
 import VendingMachine from '../items/VendingMachine'
 import VideoScreen from '../items/VideoScreen'
+import PhilbotScreen from '../items/PhilbotScreen'
 import '../characters/MyPlayer'
 import '../characters/OtherPlayer'
 import MyPlayer from '../characters/MyPlayer'
@@ -133,8 +134,23 @@ export default class Game extends Phaser.Scene {
     const videoScreens = this.physics.add.staticGroup({ classType: VideoScreen })
     const videoScreenLayer = this.map.getObjectLayer('VideoScreen')
     videoScreenLayer.objects.forEach((obj, i) => {
-      this.addObjectFromTiled(videoScreens, obj, 'vendingmachines', 'vendingmachine')
+      this.addObjectFromTiled(videoScreens, obj, 'displays', 'display')
     })
+
+
+    let philBot = this.physics.add.staticGroup({
+      classType: PhilbotScreen,
+      key: "philbot",
+      repeat:0,
+      setXY: {
+        x: 800,
+        y: 200,
+      },
+    })
+
+    philBot.playAnimation('philbot_standing')
+
+
 
     // import other objects from Tiled map to Phaser
     this.addGroupFromTiled('Wall', 'tiles_wall', 'FloorAndGround', false)
@@ -146,16 +162,17 @@ export default class Game extends Phaser.Scene {
 
     this.otherPlayers = this.physics.add.group({ classType: OtherPlayer })
 
-    this.cameras.main.zoom = 1.5
+    this.cameras.main.zoom = 1
     this.cameras.main.startFollow(this.myPlayer, true)
 
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], groundLayer)
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], vendingMachines)
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], videoScreens)
+    this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], philBot)
 
     this.physics.add.overlap(
       this.playerSelector,
-      [chairs, computers, whiteboards, vendingMachines, videoScreens],
+      [chairs, computers, whiteboards, vendingMachines, videoScreens, philBot],
       this.handleItemSelectorOverlap,
       undefined,
       this

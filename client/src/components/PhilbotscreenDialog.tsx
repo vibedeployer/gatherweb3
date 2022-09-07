@@ -4,7 +4,7 @@ import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
 
 import { useAppSelector, useAppDispatch } from '../hooks'
-import { closeVideoscreenDialog } from '../stores/VideoscreenStore'
+import { closePhilbotscreenDialog } from '../stores/PhilbotscreenStore'
 
 import {Moralis} from 'moralis-v1/dist/moralis.js'
 import { fileURLToPath } from 'url'
@@ -37,7 +37,7 @@ const Wrapper = styled.div`
   }
 `
 
-const VideoscreenWrapper = styled.div`
+const PhilbotscreenWrapper = styled.div`
   flex: 1;
   border-radius: 25px;
   overflow: hidden;
@@ -63,18 +63,15 @@ const Card = styled.div`
   margin: 10px;
 `
 
-export default function VideoscreenDialog() {
+export default function PhilbotscreenDialog() {
   
   const dispatch = useAppDispatch()
 
-  const [page, setPage] = useState<string>("HACKS")
+  const [page, setPage] = useState<string>("SUBMIT")
   const toSubmit = () => {
     setPage("SUBMIT")
   }
-  const toHacks = () => {
-    setPage("HACKS")
 
-  }
   const toEdit = () => {
     setPage("EDIT")
     fetchTokenId()
@@ -150,8 +147,6 @@ export default function VideoscreenDialog() {
       },
       msgValue: 0,
     }
-
-    console.log("testingminter")
     const transaction = await Moralis.executeFunction(options)
     
     console.log(transaction.hash)
@@ -237,114 +232,8 @@ export default function VideoscreenDialog() {
 
   // TO GET ALL THE STUFF: 
 
-  const [hacks, setHacks] = useState()
-  const [hacksContent, setHacksContent] = useState([] as any)
+
   const [hacksTokenId, setHacksTokenId] = useState()
-
-  const fetchAllNFTs = async () => {
-    
-    Moralis.enableWeb3() 
-    const options = {
-      address: "0xf55080C038bd608F8D49091E138103b1F81A6Bcd",
-      chain: "mumbai",
-    };
-    const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
-    
-    // console.log(nftOwners.result)
-    const tokenUri = nftOwners?.result?.map((data) => {
-      const {metadata, owner_of} = data
-      
-        if (metadata && metadata != null) {
-        
-          const metadataObj = JSON.parse(metadata)
-        
-          const {name, description, image, github_url, external_url} = metadataObj
-          // console.log(metadataObj)
-          return {name, description, image, github_url, external_url, owner_of}
-        } else console.log("skip")
-    }) 
-
-    
-    console.log(tokenUri)
-    setHacks(tokenUri)
-    
-  }
-
-  const fetchHacksContent = async () => {
-    const limit5 = hacks?.slice(0,5)
-    let contentHack:any[] = []
-
-    if (limit5) {
-      limit5.map(async (hack) => {
-        if (hack && hack != undefined) {
-          const {name, description, image, github_url, external_url, owner_of} = hack
-          contentHack.push({name, description, image, github_url, external_url, owner_of}); 
-        }
-      })
-    }
-    console.log(contentHack)
-    setHacksContent(contentHack)
-  }
-
-  
-
-  useEffect (() => {
-    if (hacks) {
-      fetchHacksContent()
-      
-    }
-  }, [hacks])
-
-
-  useEffect (() => {
-    if (!hacks) {
-      fetchAllNFTs()
-      
-    }
-  }, []); 
-  
-  const truncateAddy = (input) => {
-    if (input.length > 5) {
-       return input.substring(0, 7) + '...';
-    }
-    return input;
-  }
-
-  const truncateDescription = (input) => {
-    if (input.length > 55) {
-       return input.substring(0, 55) + '...';
-    }
-    return input;
-  }
-
-  function RenderOfCards() {
-    function renderer() {
-      return (
-        <CardWrapper>
-          {hacks && hacksContent.map(( card, i) => {
-            const {name, description, image, github_url, external_url, owner_of} = card;
-            const ownerUrl = `https://testnets.opensea.io/${owner_of}`
-            return ( 
-              <Card key={i}>
-                <h1>{name}</h1>
-                <img style={{maxWidth:"100%", maxHeight: "160px"}} src={image}/>
-                <p>{truncateDescription(description)}</p>
-                <div style={{display:"flex", justifyContent: "space-around"}}>
-                  <p><a target={"_blank"} href={github_url}>Github</a></p>
-                  <p><a target={"_blank"} href={external_url}>Dapp</a></p>
-                </div>
-                <p><a target={"_blank"} href={ownerUrl}>{truncateAddy(owner_of)}</a></p>
-              </Card>
-              
-            ); 
-          })}
-        </CardWrapper>
-      )
-    }
-    return renderer();
-  };
-
-
 
   return (
     <Backdrop>
@@ -352,28 +241,18 @@ export default function VideoscreenDialog() {
         <IconButton
           aria-label="close dialog"
           className="close"
-          onClick={() => dispatch(closeVideoscreenDialog())}
+          onClick={() => dispatch(closePhilbotscreenDialog())}
         >
           <CloseIcon />
         </IconButton>
         
-          <VideoscreenWrapper>
+          <PhilbotscreenWrapper>
             
-            {page == "HACKS" ? (
-              <>
-                <h1>Hackathon Entries</h1>
-                <p onClick={toSubmit}>Submit your hack</p> <p onClick={toEdit}>Edit your hack</p>
-                
-                  {RenderOfCards()}
-               
-    
-                
-              </>
-            ):(<></>)}
+           
             {page == "SUBMIT" ? (
               <>
                 <h1>Submit your hack</h1>
-                <p onClick={toHacks}>Back</p> 
+                <p >Back</p> 
                 <div>
                   <form onSubmit={uploadFile} className="writeForm">
                     <div className="writeFormGroup">
@@ -427,7 +306,7 @@ export default function VideoscreenDialog() {
             {page == "EDIT" ? (
               <>
                 <h1>Edit your hack</h1>
-                <p onClick={toHacks}>Back</p> 
+                <p >Back</p> 
                 <div>
                   <form onSubmit={uploadEditFile} className="writeForm">
                     <div className="writeFormGroup">
@@ -479,7 +358,7 @@ export default function VideoscreenDialog() {
             ):(<></>)}
             
 
-          </VideoscreenWrapper>
+          </PhilbotscreenWrapper>
         
       </Wrapper>
     </Backdrop>

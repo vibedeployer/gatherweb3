@@ -2,7 +2,7 @@ import { ItemType } from '../../../types/Items'
 import store from '../stores'
 import Item from './Item'
 import Network from '../services/Network'
-import { openVideoscreenDialog } from '../stores/VideoscreenStore'
+import { openPhilbotscreenDialog } from '../stores/PhilbotscreenStore'
 
 export default class Videoscreen extends Item {
   id?: string
@@ -11,13 +11,13 @@ export default class Videoscreen extends Item {
   constructor(scene: Phaser.Scene, x: number, y: number, texture: string, frame?: string | number) {
     super(scene, x, y, texture, frame)
 
-    this.itemType = ItemType.VIDEOSCREEN
+    this.itemType = ItemType.PHILBOTSCREEN
   }
 
 
   onOverlapDialog() {
     if (this.currentUsers.size === 0) {
-      this.setDialogBox('Press R to see all the hacks')
+      this.setDialogBox("Hello, I'm Philbot. \n Are Ready to submit your hack? \n Press R")
     } else {
       this.setDialogBox('Press R join')
     }
@@ -26,7 +26,7 @@ export default class Videoscreen extends Item {
 
   openDialog(network: Network) {
 
-    store.dispatch(openVideoscreenDialog("test"))
+    store.dispatch(openPhilbotscreenDialog("test"))
 
   }
 }
