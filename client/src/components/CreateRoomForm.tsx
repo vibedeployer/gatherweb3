@@ -97,7 +97,7 @@ export const CreateRoomForm = () => {
           ),
         }}
       />
-      <Button variant="contained" color="secondary" type="submit">
+      <Button className='buttonoverride' variant="contained" color="secondary" type="submit">
         Create
       </Button>
     </CreateRoomFormWrapper>

@@ -30,7 +30,6 @@ const Backdrop = styled.div`
 
 const Wrapper = styled.div`
   background: #222639;
-  border-radius: 16px;
   padding: 36px 60px;
   box-shadow: 0px 0px 5px #0000006f;
 `
@@ -82,7 +81,6 @@ const Content = styled.div`
   justify-content: center;
 
   img {
-    border-radius: 8px;
     height: 120px;
   }
 `
@@ -146,7 +144,7 @@ export default function RoomSelectionDialog() {
                 <IconButton className="back-button" onClick={() => setShowCreateRoomForm(false)}>
                   <ArrowBackIcon />
                 </IconButton>
-                <Title>Create Custom Room</Title>
+                <Title>Create Room</Title>
               </TitleWrapper>
               <CreateRoomForm />
             </CustomRoomWrapper>
@@ -170,6 +168,7 @@ export default function RoomSelectionDialog() {
               </TitleWrapper>
               <CustomRoomTable />
               <Button
+                className='buttonoverride'
                 variant="contained"
                 color="secondary"
                 onClick={() => setShowCreateRoomForm(true)}
@@ -183,10 +182,11 @@ export default function RoomSelectionDialog() {
               <Content>
                 
                 <img src={logo} alt="logo" />
-                <Button variant="contained" color="secondary" onClick={handleConnect}>
+                <Button className='buttonoverride' variant="contained" color="secondary" onClick={handleConnect}>
                   Connect to public lobby
                 </Button>
                 <Button
+                  className='buttonoverride'
                   variant="outlined"
                   color="secondary"
                   onClick={() => (lobbyJoined ? setShowCustomRoom(true) : setShowSnackbar(true))}

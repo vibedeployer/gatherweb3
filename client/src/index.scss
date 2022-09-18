@@ -1,8 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Silkscreen', cursive !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
@@ -141,4 +140,76 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+.buttonoverride {
+  font-family: 'Silkscreen', cursive !important;
+  border-radius:0 !important;
+}
+
+.fontoverride {
+  font-family: 'Silkscreen', cursive !important;
+}
+
+.emoji-mart {
+  border-radius: 0% !important;
+  font-family: 'Silkscreen', cursive !important;
+}
+
+.emoji-mart-dark .emoji-mart-search input {
+  font-family: 'Silkscreen', cursive !important;
+}
+
+.faboverride {
+  border-radius: 0% !important;
+}
+
+.css-1gkpvma-MuiFormLabel-root-MuiInputLabel-root {
+  font-family: 'Silkscreen', cursive !important;
+}
+
+.css-1962ulv-MuiFormLabel-root-MuiInputLabel-root {
+  font-family: 'Silkscreen', cursive !important;
+}
+
+.css-vs9g4y-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 0px !important;
+}
+
+.css-9mp3xy-MuiPaper-root-MuiAlert-root {
+  border-radius: 0px !important;
+  font-family: 'Silkscreen', cursive !important;
+}
+
+.css-yslrua-MuiTypography-root-MuiAlertTitle-root {
+  font-family: 'Silkscreen', cursive !important;
+}
+
+.css-18j989v-MuiButtonBase-root-MuiButton-root {
+  border-radius: 0px !important;
+  font-family: 'Silkscreen', cursive !important;
+}
+
+.css-4gd6nn-MuiPaper-root-MuiAlert-root {
+  font-family: 'Silkscreen', cursive !important;
+}
+
+.css-qpr2q6-MuiButtonBase-root-MuiFab-root {
+  border-radius: 0px !important;
+}
+
+.video-grid video {
+  border-radius: 0px !important;
+}
+
+.relay-receiver html, .relay-receiver body, .relay-receiver div, .relay-receiver span, .relay-receiver applet, .relay-receiver object, .relay-receiver iframe, .relay-receiver h1, .relay-receiver h2, .relay-receiver h3, .relay-receiver h4, .relay-receiver h5, .relay-receiver h6, .relay-receiver p, .relay-receiver blockquote, .relay-receiver pre, .relay-receiver a, .relay-receiver abbr, .relay-receiver acronym, .relay-receiver address, .relay-receiver big, .relay-receiver cite, .relay-receiver code, .relay-receiver del, .relay-receiver dfn, .relay-receiver em, .relay-receiver img, .relay-receiver ins, .relay-receiver kbd, .relay-receiver q, .relay-receiver s, .relay-receiver samp, .relay-receiver small, .relay-receiver strike, .relay-receiver strong, .relay-receiver sub, .relay-receiver sup, .relay-receiver tt, .relay-receiver var, .relay-receiver b, .relay-receiver u, .relay-receiver i, .relay-receiver center, .relay-receiver dl, .relay-receiver dt, .relay-receiver dd, .relay-receiver ol, .relay-receiver ul, .relay-receiver li, .relay-receiver fieldset, .relay-receiver form, .relay-receiver label, .relay-receiver legend, .relay-receiver table, .relay-receiver caption, .relay-receiver tbody, .relay-receiver tfoot, .relay-receiver thead, .relay-receiver tr, .relay-receiver th, .relay-receiver td, .relay-receiver article, .relay-receiver aside, .relay-receiver canvas, .relay-receiver details, .relay-receiver embed, .relay-receiver figure, .relay-receiver figcaption, .relay-receiver footer, .relay-receiver header, .relay-receiver hgroup, .relay-receiver menu, .relay-receiver nav, .relay-receiver output, .relay-receiver ruby, .relay-receiver section, .relay-receiver summary, .relay-receiver time, .relay-receiver mark, .relay-receiver audio, .relay-receiver video {
+  right: inherit !important;
+}
+
+.hDotyT {
+  border-radius: 0px !important;
+}
+
+.relay-receiver html, .relay-receiver body, .relay-receiver div, .relay-receiver span, .relay-receiver applet, .relay-receiver object, .relay-receiver iframe, .relay-receiver h1, .relay-receiver h2, .relay-receiver h3, .relay-receiver h4, .relay-receiver h5, .relay-receiver h6, .relay-receiver p, .relay-receiver blockquote, .relay-receiver pre, .relay-receiver a, .relay-receiver abbr, .relay-receiver acronym, .relay-receiver address, .relay-receiver big, .relay-receiver cite, .relay-receiver code, .relay-receiver del, .relay-receiver dfn, .relay-receiver em, .relay-receiver img, .relay-receiver ins, .relay-receiver kbd, .relay-receiver q, .relay-receiver s, .relay-receiver samp, .relay-receiver small, .relay-receiver strike, .relay-receiver strong, .relay-receiver sub, .relay-receiver sup, .relay-receiver tt, .relay-receiver var, .relay-receiver b, .relay-receiver u, .relay-receiver i, .relay-receiver center, .relay-receiver dl, .relay-receiver dt, .relay-receiver dd, .relay-receiver ol, .relay-receiver ul, .relay-receiver li, .relay-receiver fieldset, .relay-receiver form, .relay-receiver label, .relay-receiver legend, .relay-receiver table, .relay-receiver caption, .relay-receiver tbody, .relay-receiver tfoot, .relay-receiver thead, .relay-receiver tr, .relay-receiver th, .relay-receiver td, .relay-receiver article, .relay-receiver aside, .relay-receiver canvas, .relay-receiver details, .relay-receiver embed, .relay-receiver figure, .relay-receiver figcaption, .relay-receiver footer, .relay-receiver header, .relay-receiver hgroup, .relay-receiver menu, .relay-receiver nav, .relay-receiver output, .relay-receiver ruby, .relay-receiver section, .relay-receiver summary, .relay-receiver time, .relay-receiver mark, .relay-receiver audio, .relay-receiver video {
+  font-family: 'Silkscreen', cursive !important;
 }

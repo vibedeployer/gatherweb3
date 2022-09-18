@@ -210,10 +210,10 @@ export const CustomRoomTable = () => {
             )}
           </DialogContent>
           <DialogActions>
-            <Button color="secondary" onClick={resetPasswordDialog}>
+            <Button className='buttonoverride' color="secondary" onClick={resetPasswordDialog}>
               Cancel
             </Button>
-            <Button color="secondary" type="submit">
+            <Button className='buttonoverride' color="secondary" type="submit">
               Join
             </Button>
           </DialogActions>

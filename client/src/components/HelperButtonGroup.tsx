@@ -13,11 +13,13 @@ import LightbulbIcon from '@mui/icons-material/Lightbulb'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight'
 import GitHubIcon from '@mui/icons-material/GitHub'
 import TwitterIcon from '@mui/icons-material/Twitter'
+import LogoutIcon from '@mui/icons-material/Logout'
 
 import { BackgroundMode } from '../../../types/BackgroundMode'
 import { toggleBackgroundMode } from '../stores/UserStore'
 import { useAppSelector, useAppDispatch } from '../hooks'
 import { getAvatarString, getColorByString } from '../util'
+import Moralis from 'moralis/dist/moralis.min.js'
 
 const Backdrop = styled.div`
   position: fixed;
@@ -113,6 +115,16 @@ export default function HelperButtonGroup() {
   const roomDescription = useAppSelector((state) => state.room.roomDescription)
   const dispatch = useAppDispatch()
 
+  const serverUrl = "https://9seliyououv4.usemoralis.com:2053/server";
+    const appId = "C1qB7bDYzmDYxjmFvyvwC5SwZPinTwxrpWzAhDVH";
+    Moralis.start({ serverUrl, appId });
+
+  async function logOut() {
+    await Moralis.User.logOut();
+    console.log("logged out");
+    window.location.reload();
+  }
+
   return (
     <Backdrop>
       <div className="wrapper-group">
@@ -156,6 +168,15 @@ export default function HelperButtonGroup() {
                 <strong>R</strong> to use computer to screen share (when facing a computer)
               </li>
               <li>
+                <strong>R</strong> to use Whiteboard to screen share (when facing a whiteboard)
+              </li>
+              <li>
+                <strong>R</strong> to see other hacks (when facing a hackathon monitor)
+              </li>
+              <li>
+                <strong>R</strong> to submit your hack (when facing Philbot)
+              </li>
+              <li>
                 <strong>Enter</strong> to open chat
               </li>
               <li>
@@ -172,8 +193,20 @@ export default function HelperButtonGroup() {
       <ButtonGroup>
         {roomJoined && (
           <>
+            <Tooltip title="Log Out">
+              <StyledFab
+              className='faboverride'
+                size="small"
+                onClick={() => {
+                  logOut()
+                }}
+              >
+                <LogoutIcon />
+              </StyledFab>
+            </Tooltip>
             <Tooltip title="Room Info">
               <StyledFab
+              className='faboverride'
                 size="small"
                 onClick={() => {
                   setShowRoomInfo(!showRoomInfo)
@@ -185,6 +218,7 @@ export default function HelperButtonGroup() {
             </Tooltip>
             <Tooltip title="Control Guide">
               <StyledFab
+              className='faboverride'
                 size="small"
                 onClick={() => {
                   setShowControlGuide(!showControlGuide)
@@ -196,22 +230,24 @@ export default function HelperButtonGroup() {
             </Tooltip>
           </>
         )}
+        
         <Tooltip title="Visit Our GitHub">
           <StyledFab
+            className='faboverride'
             size="small"
-            href="https://github.com/kevinshen56714/SkyOffice"
+            href="https://github.com/elonsdev/gatherweb3"
             target="_blank"
           >
             <GitHubIcon />
           </StyledFab>
         </Tooltip>
-        <Tooltip title="Follow Us on Twitter">
-          <StyledFab size="small" href="https://twitter.com/SkyOfficeApp" target="_blank">
+        <Tooltip title="Follow on Twitter">
+          <StyledFab className='faboverride' size="small" href="https://twitter.com/elonsdev" target="_blank">
             <TwitterIcon />
           </StyledFab>
         </Tooltip>
         <Tooltip title="Switch Background Theme">
-          <StyledFab size="small" onClick={() => dispatch(toggleBackgroundMode())}>
+          <StyledFab className='faboverride' size="small" onClick={() => dispatch(toggleBackgroundMode())}>
             {backgroundMode === BackgroundMode.DAY ? <DarkModeIcon /> : <LightModeIcon />}
           </StyledFab>
         </Tooltip>

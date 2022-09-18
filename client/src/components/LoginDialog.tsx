@@ -113,6 +113,7 @@ const Left = styled.div`
 
 const Right = styled.div`
   width: 300px;
+  font-family: 'silkscreen'
 `
 
 const Bottom = styled.div`
@@ -197,7 +198,7 @@ export default function LoginDialog() {
     <Wrapper onSubmit={handleSubmit}>
       <Title>Joining</Title>
       <RoomName>
-        <Avatar style={{ background: getColorByString(roomName) }}>
+        <Avatar style={{ background: getColorByString(roomName), fontFamily: 'Silkscreen'  }}>
           {getAvatarString(roomName)}
         </Avatar>
         <h3>{roomName}</h3>
@@ -227,6 +228,7 @@ export default function LoginDialog() {
         <Right>
           <SubTitle>Welcome {name}</SubTitle>
           <TextField
+            className='textfieldoverride'
             autoFocus
             fullWidth
             label="Name"
@@ -264,7 +266,7 @@ export default function LoginDialog() {
         </Right>
       </Content>
       <Bottom>
-        <Button variant="contained" color="secondary" size="large" type="submit">
+        <Button className='buttonoverride' variant="contained" color="secondary" size="large" type="submit">
           Join
         </Button>
       </Bottom>

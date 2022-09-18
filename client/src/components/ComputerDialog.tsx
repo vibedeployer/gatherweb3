@@ -115,6 +115,7 @@ export default function ComputerDialog() {
           >
             {shareScreenManager?.myStream ? 'Stop sharing' : 'Share Screen'}
           </Button>
+          
         </div>
 
         <VideoGrid>

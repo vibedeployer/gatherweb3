@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import styled from 'styled-components'
+import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
 
@@ -8,7 +9,7 @@ import { closePhilbotscreenDialog } from '../stores/PhilbotscreenStore'
 
 import {Moralis} from 'moralis-v1/dist/moralis.js'
 import { fileURLToPath } from 'url'
-
+import { useDropzone } from "react-dropzone";
 
 const Backdrop = styled.div`
   position: fixed;
@@ -17,7 +18,7 @@ const Backdrop = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  padding: 16px 180px 16px 16px;
+  padding: 16px 180px 16px 16px; 
 `
 const Wrapper = styled.div`
   width: 100%;
@@ -40,8 +41,7 @@ const Wrapper = styled.div`
 const PhilbotscreenWrapper = styled.div`
   flex: 1;
   border-radius: 25px;
-  overflow: hidden;
-  margin-right: 50px;
+  text-align: center;
 
   iframe {
     width: 100%;
@@ -235,6 +235,24 @@ export default function PhilbotscreenDialog() {
 
   const [hacksTokenId, setHacksTokenId] = useState()
 
+
+  const onDrop =  useCallback(async acceptedFiles => {
+    try {
+      
+      const data = acceptedFiles[0];
+      console.log(data)
+
+      const file = new Moralis.File("image.png", data);
+      const result = await file.saveIPFS()
+      setSumbitImage(result.ipfs())
+
+      
+    } catch (error) {
+      alert(error)
+    }
+  }, [])
+  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
   return (
     <Backdrop>
       <Wrapper>
@@ -251,8 +269,9 @@ export default function PhilbotscreenDialog() {
            
             {page == "SUBMIT" ? (
               <>
-                <h1>Submit your hack</h1>
-                <p >Back</p> 
+                <h1>SUBMIT YOUR HACK</h1>
+                
+                
                 <div>
                   <form onSubmit={uploadFile} className="writeForm">
                     <div className="writeFormGroup">
@@ -265,6 +284,15 @@ export default function PhilbotscreenDialog() {
                         onChange={(e) => setSubmitTitle(e.target.value)}
                       />
                     </div>
+                    <div {...getRootProps()}>
+                      <input {...getInputProps()} />
+                      {
+                        isDragActive ?
+                          <p>Drop the files here ...</p> :
+                          <p>Drag 'n' drop the image here, or click to select image</p>
+                      }
+                    </div>
+                    <img src={submitImage}/>
                     <div className="writeFormGroup">
                       <textarea
                         className="writeInput writeText"
@@ -292,11 +320,10 @@ export default function PhilbotscreenDialog() {
                       />
                     </div>
                    
-                      
-                    
-                    <button className="writeSubmit" type="submit">
+              
+                    <Button variant="contained" color="secondary" type="submit">
                       Submit
-                    </button>
+                    </Button>
                   </form>
                 </div>
 
@@ -306,7 +333,6 @@ export default function PhilbotscreenDialog() {
             {page == "EDIT" ? (
               <>
                 <h1>Edit your hack</h1>
-                <p >Back</p> 
                 <div>
                   <form onSubmit={uploadEditFile} className="writeForm">
                     <div className="writeFormGroup">
@@ -348,9 +374,9 @@ export default function PhilbotscreenDialog() {
                    
                       
                     
-                    <button className="writeSubmit" type="submit">
+                    <Button variant="contained" color="secondary" type="submit">
                       Submit
-                    </button>
+                    </Button>
                   </form>
                 </div>
 
