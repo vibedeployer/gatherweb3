@@ -4,7 +4,7 @@ Web3 Clone of Gather.Town for the Moralis x Filecoin hackathon.
 
 This project uses: 
 
-Code: 
+Code/Packages: 
 Typescript
 Phaser 3 
 Colyseus
@@ -13,6 +13,8 @@ Integrations:
 Moralis
 IPFS/Filecoin 
 
+Free Assets: 
+https://limezu.itch.io/moderninteriors
 
 MORALIS FUNCTIONS: 
 
@@ -30,3 +32,5 @@ Within the Philbot Dialogue we create necassary execute contract functions to su
 FILECOIN FUNCTIONS: 
 Within the Philbot Dialogue we push the hackathon content to IPFS and when returned add it as the URI to the minted hack NFT. 
 - https://github.com/elonsdev/gatherweb3/blob/main/client/src/components/PhilbotscreenDialog.tsx
+
+NFT collection of Hackathon entries on mumbai: https://testnets.opensea.io/collection/hackerverse 

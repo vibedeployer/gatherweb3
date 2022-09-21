@@ -9,6 +9,7 @@ import Computer from '../items/Computer'
 import Whiteboard from '../items/Whiteboard'
 import VendingMachine from '../items/VendingMachine'
 import VideoScreen from '../items/VideoScreen'
+import YoutubeScreen from '../items/YoutubeScreen'
 import PhilbotScreen from '../items/PhilbotScreen'
 import '../characters/MyPlayer'
 import '../characters/OtherPlayer'
@@ -137,6 +138,13 @@ export default class Game extends Phaser.Scene {
       this.addObjectFromTiled(videoScreens, obj, 'displays', 'display')
     })
 
+    // import video scereen objects from Tiled map to Phaser
+    const youtubeScreens = this.physics.add.staticGroup({ classType: YoutubeScreen })
+    const youtubeScreenLayer = this.map.getObjectLayer('YoutubeScreen')
+    youtubeScreenLayer.objects.forEach((obj, i) => {
+      this.addObjectFromTiled(youtubeScreens, obj, 'youtubedisplays', 'youtubedisplay')
+    })
+
 
     let philBot = this.physics.add.staticGroup({
       classType: PhilbotScreen,
@@ -168,11 +176,12 @@ export default class Game extends Phaser.Scene {
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], groundLayer)
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], vendingMachines)
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], videoScreens)
+    this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], youtubeScreens)
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], philBot)
 
     this.physics.add.overlap(
       this.playerSelector,
-      [chairs, computers, whiteboards, vendingMachines, videoScreens, philBot],
+      [chairs, computers, whiteboards, vendingMachines, videoScreens, philBot, youtubeScreens],
       this.handleItemSelectorOverlap,
       undefined,
       this

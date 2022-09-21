@@ -225,9 +225,88 @@ export default function Chat() {
     <Backdrop>
       <Wrapper>
       
-            <Receiver>
-              <InlineLaunch launchText={'CHAT'} inlineLaunch={false} as={undefined}/>
-            </Receiver>
+           
+
+            {showChat ? (
+              <>
+                <ChatHeader>
+                  <h3>Room Chat</h3>
+                  <IconButton
+                    aria-label="close dialog"
+                    className="close"
+                    onClick={() => dispatch(setShowChat(false))}
+                    size="small"
+                  >
+                    <CloseIcon />
+                  </IconButton>
+                </ChatHeader>
+                <ChatBox>
+                  {chatMessages.map(({ messageType, chatMessage }, index) => (
+                    <Message chatMessage={chatMessage} messageType={messageType} key={index} />
+                  ))}
+                  <div ref={messagesEndRef} />
+                  {showEmojiPicker && (
+                    <EmojiPickerWrapper>
+                      <Picker
+                        theme="dark"
+                        showSkinTones={false}
+                        showPreview={false}
+                        onSelect={(emoji) => {
+                          setInputValue(inputValue + emoji.native)
+                          setShowEmojiPicker(!showEmojiPicker)
+                          dispatch(setFocused(true))
+                        }}
+                        exclude={['recent', 'flags']}
+                      />
+                    </EmojiPickerWrapper>
+                  )}
+                </ChatBox>
+                <InputWrapper onSubmit={handleSubmit}>
+                  <InputTextField
+                    inputRef={inputRef}
+                    autoFocus={focused}
+                    fullWidth
+                    placeholder="Press Enter to chat"
+                    value={inputValue}
+                    onKeyDown={handleKeyDown}
+                    onChange={handleChange}
+                    onFocus={() => {
+                      if (!focused) {
+                        dispatch(setFocused(true))
+                        setReadyToSubmit(true)
+                      }
+                    }}
+                    onBlur={() => {
+                      dispatch(setFocused(false))
+                      setReadyToSubmit(false)
+                    }}
+                  />
+                  <IconButton aria-label="emoji" onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
+                    <InsertEmoticonIcon />
+                  </IconButton>
+                </InputWrapper>
+              </>
+            ) : (
+              <>
+              <FabWrapper>
+                <Fab
+                  color="secondary"
+                  aria-label="showChat"
+                  onClick={() => {
+                    dispatch(setShowChat(true))
+                    dispatch(setFocused(true))
+                  }}
+                >
+                  <ChatBubbleOutlineIcon />
+                </Fab>
+              </FabWrapper>
+
+              <Receiver>
+              <InlineLaunch launchText={'DMS'} inlineLaunch={false} as={undefined}/>
+              </Receiver>
+
+              </>
+            )}
       </Wrapper>
     </Backdrop>
   )

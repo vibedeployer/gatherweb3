@@ -4,6 +4,7 @@ import userReducer from './UserStore'
 import computerReducer from './ComputerStore'
 import whiteboardReducer from './WhiteboardStore'
 import videoscreenReducer from './VideoscreenStore'
+import youtubescreenReducer from './YoutubescreenStore'
 import philbotscreenReducer from './PhilbotscreenStore'
 import chatReducer from './ChatStore'
 import roomReducer from './RoomStore'
@@ -16,6 +17,7 @@ const store = configureStore({
     computer: computerReducer,
     whiteboard: whiteboardReducer,
     videoscreen: videoscreenReducer,
+    youtubescreen: youtubescreenReducer,
     philbotscreen: philbotscreenReducer,
     chat: chatReducer,
     room: roomReducer,

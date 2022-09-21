@@ -5,5 +5,6 @@ export enum ItemType {
   VENDINGMACHINE,
   VIDEOSCREEN,
   PHILBOTSCREEN,
+  YOUTUBESCREEN,
 }
  

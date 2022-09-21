@@ -52,6 +52,10 @@ export default class Bootstrap extends Phaser.Scene {
       frameWidth: 48,
       frameHeight: 72,
     })
+    this.load.spritesheet('youtubedisplays', 'assets/items/youtubedisplay.png', {
+      frameWidth: 48,
+      frameHeight: 72,
+    })
     this.load.spritesheet('office', 'assets/tileset/Modern_Office_Black_Shadow.png', {
       frameWidth: 32,
       frameHeight: 32,

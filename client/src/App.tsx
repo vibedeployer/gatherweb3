@@ -8,6 +8,7 @@ import LoginDialog from './components/LoginDialog'
 import ComputerDialog from './components/ComputerDialog'
 import WhiteboardDialog from './components/WhiteboardDialog'
 import VideoscreenDialog from './components/VideoscreenDialog'
+import YoutubescreenDialog from './components/YoutubescreenDialog'
 import PhilbotscreenDialog from './components/PhilbotscreenDialog'
 import VideoConnectionDialog from './components/VideoConnectionDialog'
 import Chat from './components/Chat'
@@ -25,6 +26,7 @@ function App() {
   const whiteboardDialogOpen = useAppSelector((state) => state.whiteboard.whiteboardDialogOpen)
   const videoscreenDialogOpen = useAppSelector((state) => state.videoscreen.videoscreenDialogOpen)
   const philbotscreenDialogOpen = useAppSelector((state) => state.philbotscreen.philbotscreenDialogOpen)
+  const youtubescreenDialogOpen = useAppSelector((state) => state.youtubescreen.youtubescreenDialogOpen)
   const videoConnected = useAppSelector((state) => state.user.videoConnected)
   const roomJoined = useAppSelector((state) => state.room.roomJoined)
 
@@ -39,6 +41,9 @@ function App() {
     } else if (videoscreenDialogOpen) {
       /* Render WhiteboardDialog if user is using a whiteboard. */
       ui = <VideoscreenDialog />
+    } else if (youtubescreenDialogOpen) {
+      /* Render WhiteboardDialog if user is using a whiteboard. */
+      ui = <YoutubescreenDialog />
     } else if (philbotscreenDialogOpen) {
       /* Render WhiteboardDialog if user is using a whiteboard. */
       ui = <PhilbotscreenDialog />

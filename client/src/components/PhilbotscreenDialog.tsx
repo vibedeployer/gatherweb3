@@ -92,7 +92,7 @@ export default function PhilbotscreenDialog() {
     const metadata = {
       name: submitTitle,
       description: submitText,
-      image: "https://via.placeholder.com/600x400.png",
+      image: submitImage,
       external_url: submitLiveLink,
       youtube_url: submitYoutubeLink,
       github_url: submitGithubLink,
@@ -112,7 +112,7 @@ export default function PhilbotscreenDialog() {
       await mint(result.ipfs())
       
     } catch (error) {
-      alert(error.message)
+      alert(error)
     }
   }
 
@@ -170,7 +170,7 @@ export default function PhilbotscreenDialog() {
     const metadata = {
       name: submitTitle,
       description: submitText,
-      image: "https://via.placeholder.com/600x400.png",
+      image: submitImage,
       external_url: submitLiveLink,
       youtube_url: submitYoutubeLink,
       github_url: submitGithubLink,
@@ -190,7 +190,7 @@ export default function PhilbotscreenDialog() {
       await edit(result.ipfs())
       
     } catch (error) {
-      alert(error.message)
+      alert(error)
     }
   }
 
@@ -269,6 +269,7 @@ export default function PhilbotscreenDialog() {
            
             {page == "SUBMIT" ? (
               <>
+
                 <h1>SUBMIT YOUR HACK</h1>
                 
                 
@@ -292,7 +293,7 @@ export default function PhilbotscreenDialog() {
                           <p>Drag 'n' drop the image here, or click to select image</p>
                       }
                     </div>
-                    <img src={submitImage}/>
+                    <img style={{maxWidth: "200px"}} src={submitImage}/>
                     <div className="writeFormGroup">
                       <textarea
                         className="writeInput writeText"
@@ -326,7 +327,8 @@ export default function PhilbotscreenDialog() {
                     </Button>
                   </form>
                 </div>
-
+                <br/>
+                <button onClick={toEdit}>EDIT YOUR HACK</button>
               </>
             ):(<></>)}
 
@@ -345,6 +347,15 @@ export default function PhilbotscreenDialog() {
                         onChange={(e) => setSubmitTitle(e.target.value)}
                       />
                     </div>
+                    <div {...getRootProps()}>
+                      <input {...getInputProps()} />
+                      {
+                        isDragActive ?
+                          <p>Drop the files here ...</p> :
+                          <p>Drag 'n' drop the image here, or click to select image</p>
+                      }
+                    </div>
+                    <img style={{maxWidth: "200px"}} src={submitImage}/>
                     <div className="writeFormGroup">
                       <textarea
                         className="writeInput writeText"

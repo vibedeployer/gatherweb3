@@ -8,6 +8,7 @@ import Chair from '../items/Chair'
 import Computer from '../items/Computer'
 import Whiteboard from '../items/Whiteboard'
 import VideoScreen from '../items/VideoScreen'
+import YoutubeScreen from '../items/YoutubeScreen'
 import PhilbotScreen from '../items/PhilbotScreen'
 
 import { phaserEvents, Event } from '../events/EventCenter'
@@ -15,6 +16,8 @@ import store from '../stores'
 import { pushPlayerJoinedMessage } from '../stores/ChatStore'
 import { ItemType } from '../../../types/Items'
 import { NavKeys } from '../../../types/KeyboardState'
+
+import {Moralis} from 'moralis-v1/dist/moralis.js'
 
 export default class MyPlayer extends Player {
   private playContainerBody: Phaser.Physics.Arcade.Body
@@ -41,6 +44,15 @@ export default class MyPlayer extends Player {
     this.playerTexture = texture
     this.anims.play(`${this.playerTexture}_idle_down`, true)
     phaserEvents.emit(Event.MY_PLAYER_TEXTURE_CHANGE, this.x, this.y, this.anims.currentAnim.key)
+  }
+
+  async tipMe() {
+    const options = {
+      type: "native",
+      amount: Moralis.Units.ETH("0.1"),
+      receiver: "0x1f6b72ad351A5D2FD73dD243eDb475a837E43026",
+    };
+    let result = await Moralis.transfer(options);
   }
 
   update(
@@ -72,10 +84,14 @@ export default class MyPlayer extends Player {
             const philbotscreen = item as PhilbotScreen
             philbotscreen.openDialog(network)
             break
+        case ItemType.YOUTUBESCREEN:
+              const youtubescreen = item as YoutubeScreen
+              youtubescreen.openDialog(network)
+              break
         case ItemType.VENDINGMACHINE:
-          // hacky and hard-coded, but leaving it as is for now
-          window.open('https://www.buymeacoffee.com/', '_blank')
-          break
+            // hacky and hard-coded, but leaving it as is for now
+            this.tipMe()
+            break
       }
     }
 

@@ -101,7 +101,7 @@ export default function VideoscreenDialog() {
   }
 
   const fetchHacksContent = async () => {
-    const limit5 = hacks?.slice(0,5)
+    const limit5:any = hacks
     let contentHack:any[] = []
 
     if (limit5) {

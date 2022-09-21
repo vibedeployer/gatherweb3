@@ -35,8 +35,8 @@ export default class Network {
     const protocol = window.location.protocol.replace('http', 'ws')
     const endpoint =
       process.env.NODE_ENV === 'production'
-        ? `wss://sky-office.herokuapp.com/`
-        : `${protocol}//${window.location.hostname}:2567`
+        ? `wss://gathertownclone.herokuapp.com/`
+        : `${protocol}//gathertownclone.herokuapp.com/`
     this.client = new Client(endpoint)
     this.joinLobbyRoom().then(() => {
       store.dispatch(setLobbyJoined(true))
