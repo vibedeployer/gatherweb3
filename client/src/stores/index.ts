@@ -6,6 +6,8 @@ import whiteboardReducer from './WhiteboardStore'
 import videoscreenReducer from './VideoscreenStore'
 import youtubescreenReducer from './YoutubescreenStore'
 import philbotscreenReducer from './PhilbotscreenStore'
+import pooltableReducer from './PooltableStore'
+import nftmintReducer from './NftmintStore'
 import chatReducer from './ChatStore'
 import roomReducer from './RoomStore'
  
@@ -19,6 +21,8 @@ const store = configureStore({
     videoscreen: videoscreenReducer,
     youtubescreen: youtubescreenReducer,
     philbotscreen: philbotscreenReducer,
+    pooltable: pooltableReducer,
+    nftmint: nftmintReducer,
     chat: chatReducer,
     room: roomReducer,
   },

@@ -18,7 +18,7 @@ import { getColorByString } from '../util'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { MessageType, setFocused, setShowChat } from '../stores/ChatStore'
 
-import { Receiver, InlineLaunch } from '@relaycc/receiver';
+
 
 const Backdrop = styled.div`
   position: fixed;
@@ -301,9 +301,7 @@ export default function Chat() {
                 </Fab>
               </FabWrapper>
 
-              <Receiver>
-              <InlineLaunch launchText={'DMS'} inlineLaunch={false} as={undefined}/>
-              </Receiver>
+              
 
               </>
             )}

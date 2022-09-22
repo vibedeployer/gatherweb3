@@ -10,7 +10,8 @@ import Whiteboard from '../items/Whiteboard'
 import VideoScreen from '../items/VideoScreen'
 import YoutubeScreen from '../items/YoutubeScreen'
 import PhilbotScreen from '../items/PhilbotScreen'
-
+import Pooltable from '../items/pooltable'
+import Nftmint from '../items/Nftmint'
 import { phaserEvents, Event } from '../events/EventCenter'
 import store from '../stores'
 import { pushPlayerJoinedMessage } from '../stores/ChatStore'
@@ -87,6 +88,14 @@ export default class MyPlayer extends Player {
         case ItemType.YOUTUBESCREEN:
               const youtubescreen = item as YoutubeScreen
               youtubescreen.openDialog(network)
+              break
+        case ItemType.POOLTABLE:
+              const pooltable = item as Pooltable
+              pooltable.openDialog(network)
+              break
+        case ItemType.NFTMINT:
+              const nftmint = item as Nftmint
+              nftmint.openDialog(network)
               break
         case ItemType.VENDINGMACHINE:
             // hacky and hard-coded, but leaving it as is for now

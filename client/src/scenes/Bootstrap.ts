@@ -56,6 +56,14 @@ export default class Bootstrap extends Phaser.Scene {
       frameWidth: 48,
       frameHeight: 72,
     })
+    this.load.spritesheet('pooltables', 'assets/items/pooltable.png', {
+      frameWidth: 96,
+      frameHeight: 76,
+    })
+    this.load.spritesheet('nftmints', 'assets/items/nftmint.png', {
+      frameWidth: 96,
+      frameHeight: 76,
+    })
     this.load.spritesheet('office', 'assets/tileset/Modern_Office_Black_Shadow.png', {
       frameWidth: 32,
       frameHeight: 32,

@@ -6,5 +6,7 @@ export enum ItemType {
   VIDEOSCREEN,
   PHILBOTSCREEN,
   YOUTUBESCREEN,
+  POOLTABLE,
+  NFTMINT,
 }
  

@@ -10,6 +10,8 @@ import WhiteboardDialog from './components/WhiteboardDialog'
 import VideoscreenDialog from './components/VideoscreenDialog'
 import YoutubescreenDialog from './components/YoutubescreenDialog'
 import PhilbotscreenDialog from './components/PhilbotscreenDialog'
+import PooltableDialog from './components/PooltableDialog'
+import NftmintDialog from './components/NftmintDialog'
 import VideoConnectionDialog from './components/VideoConnectionDialog'
 import Chat from './components/Chat'
 import HelperButtonGroup from './components/HelperButtonGroup'
@@ -27,6 +29,8 @@ function App() {
   const videoscreenDialogOpen = useAppSelector((state) => state.videoscreen.videoscreenDialogOpen)
   const philbotscreenDialogOpen = useAppSelector((state) => state.philbotscreen.philbotscreenDialogOpen)
   const youtubescreenDialogOpen = useAppSelector((state) => state.youtubescreen.youtubescreenDialogOpen)
+  const pooltableDialogOpen = useAppSelector((state) => state.pooltable.pooltableDialogOpen)
+  const nftmintDialogOpen = useAppSelector((state) => state.nftmint.nftmintDialogOpen)
   const videoConnected = useAppSelector((state) => state.user.videoConnected)
   const roomJoined = useAppSelector((state) => state.room.roomJoined)
 
@@ -47,6 +51,12 @@ function App() {
     } else if (philbotscreenDialogOpen) {
       /* Render WhiteboardDialog if user is using a whiteboard. */
       ui = <PhilbotscreenDialog />
+    } else if (pooltableDialogOpen) {
+      /* Render WhiteboardDialog if user is using a whiteboard. */
+      ui = <PooltableDialog />
+    } else if (nftmintDialogOpen) {
+      /* Render WhiteboardDialog if user is using a whiteboard. */
+      ui = <NftmintDialog />
     } else {
       ui = (
         /* Render Chat or VideoConnectionDialog if no dialogs are opened. */

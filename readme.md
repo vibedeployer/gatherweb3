@@ -34,3 +34,12 @@ Within the Philbot Dialogue we push the hackathon content to IPFS and when retur
 - https://github.com/elonsdev/gatherweb3/blob/main/client/src/components/PhilbotscreenDialog.tsx
 
 NFT collection of Hackathon entries on mumbai: https://testnets.opensea.io/collection/hackerverse 
+
+
+
+
+KNOWN BUGS: 
+
+relay.cc removed the inline receiver so the xmpt broke this week.  Need to work on integrating it again. 
+
+sometimes pool table crashes when multiple ppl using at same time 

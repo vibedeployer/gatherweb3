@@ -4321,18 +4321,6 @@
                  "y":320
                 }, 
                 {
-                 "gid":4686,
-                 "height":64,
-                 "id":881,
-                 "name":"",
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":64,
-                 "x":1056,
-                 "y":96
-                }, 
-                {
                  "gid":4687,
                  "height":64,
                  "id":1263,
@@ -4753,9 +4741,55 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":17,
+         "name":"Pooltable",
+         "objects":[
+                {
+                 "gid":6915,
+                 "height":76,
+                 "id":1370,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":96,
+                 "x":464,
+                 "y":319
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":18,
+         "name":"Nftmint",
+         "objects":[
+                {
+                 "gid":6916,
+                 "height":40,
+                 "id":1373,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":936.181818181818,
+                 "y":310
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":17,
- "nextobjectid":1368,
+ "nextlayerid":19,
+ "nextobjectid":1374,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",
@@ -27963,6 +27997,32 @@
          "tilecount":1,
          "tileheight":48,
          "tilewidth":60
+        }, 
+        {
+         "columns":1,
+         "firstgid":6915,
+         "image":"..\/items\/pooltable.png",
+         "imageheight":76,
+         "imagewidth":96,
+         "margin":0,
+         "name":"pooltable",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":76,
+         "tilewidth":96
+        }, 
+        {
+         "columns":1,
+         "firstgid":6916,
+         "image":"..\/items\/nftmint.png",
+         "imageheight":40,
+         "imagewidth":48,
+         "margin":0,
+         "name":"nftmint",
+         "spacing":0,
+         "tilecount":1,
+         "tileheight":40,
+         "tilewidth":48
         }],
  "tilewidth":32,
  "type":"map",

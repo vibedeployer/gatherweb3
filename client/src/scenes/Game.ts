@@ -11,6 +11,8 @@ import VendingMachine from '../items/VendingMachine'
 import VideoScreen from '../items/VideoScreen'
 import YoutubeScreen from '../items/YoutubeScreen'
 import PhilbotScreen from '../items/PhilbotScreen'
+import Pooltable from '../items/pooltable'
+import Nftmint from '../items/Nftmint'
 import '../characters/MyPlayer'
 import '../characters/OtherPlayer'
 import MyPlayer from '../characters/MyPlayer'
@@ -86,7 +88,7 @@ export default class Game extends Phaser.Scene {
 
     // debugDraw(groundLayer, this)
 
-    this.myPlayer = this.add.myPlayer(705, 500, 'adam', this.network.mySessionId)
+    this.myPlayer = this.add.myPlayer(905, 500, 'adam', this.network.mySessionId)
     this.playerSelector = new PlayerSelector(this, 0, 0, 16, 16)
 
     // import chair objects from Tiled map to Phaser
@@ -138,11 +140,25 @@ export default class Game extends Phaser.Scene {
       this.addObjectFromTiled(videoScreens, obj, 'displays', 'display')
     })
 
-    // import video scereen objects from Tiled map to Phaser
+    // import yt scereen objects from Tiled map to Phaser
     const youtubeScreens = this.physics.add.staticGroup({ classType: YoutubeScreen })
     const youtubeScreenLayer = this.map.getObjectLayer('YoutubeScreen')
     youtubeScreenLayer.objects.forEach((obj, i) => {
       this.addObjectFromTiled(youtubeScreens, obj, 'youtubedisplays', 'youtubedisplay')
+    })
+
+    // import pooltable objects from Tiled map to Phaser
+    const pooltables = this.physics.add.staticGroup({ classType: Pooltable })
+    const pooltableLayer = this.map.getObjectLayer('Pooltable')
+    pooltableLayer.objects.forEach((obj, i) => {
+      this.addObjectFromTiled(pooltables, obj, 'pooltables', 'pooltable')
+    })
+
+    // import Nftminter objects from Tiled map to Phaser
+    const nftmints = this.physics.add.staticGroup({ classType: Nftmint })
+    const NftmintLayer = this.map.getObjectLayer('Nftmint')
+    NftmintLayer.objects.forEach((obj, i) => {
+      this.addObjectFromTiled(nftmints, obj, 'nftmints', 'nftmint')
     })
 
 
@@ -151,8 +167,8 @@ export default class Game extends Phaser.Scene {
       key: "philbot",
       repeat:0,
       setXY: {
-        x: 800,
-        y: 200,
+        x: 1100,
+        y: 100,
       },
     })
 
@@ -177,11 +193,13 @@ export default class Game extends Phaser.Scene {
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], vendingMachines)
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], videoScreens)
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], youtubeScreens)
+    this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], pooltables)
+    this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], nftmints)
     this.physics.add.collider([this.myPlayer, this.myPlayer.playerContainer], philBot)
 
     this.physics.add.overlap(
       this.playerSelector,
-      [chairs, computers, whiteboards, vendingMachines, videoScreens, philBot, youtubeScreens],
+      [chairs, computers, whiteboards, vendingMachines, videoScreens, philBot, youtubeScreens, pooltables, nftmints],
       this.handleItemSelectorOverlap,
       undefined,
       this
