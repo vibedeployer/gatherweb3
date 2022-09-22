@@ -36,7 +36,12 @@ Within the Philbot Dialogue we push the hackathon content to IPFS and when retur
 NFT collection of Hackathon entries on mumbai: https://testnets.opensea.io/collection/hackerverse 
 
 
+TO START PROJECT: 
+server: 
+yarn then yarn start
 
+/client: 
+yarn then yarn dev
 
 KNOWN BUGS: 
 
